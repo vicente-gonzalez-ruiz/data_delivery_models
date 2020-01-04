@@ -1,11 +1,11 @@
 <!DOCTYPE html> 
 <html> 
-<head> <title>Data Delivery Models [1]</title> 
+<head> <title>Data Transmission Models [1]</title> 
 <meta charset="UTF-8" /> 
 <meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
 <link rel="stylesheet" type="text/css" href="index.css" /> 
 <script type="text/javascript" 
-src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
 ></script> 
 <style type="text/css"> 
 .MathJax_MathML {text-indent: 0;} 
@@ -20,64 +20,63 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 
                                                                   
 
-<h2 class="titleHead">Data Delivery Models <span class="cite">[<a 
+<h2 class="titleHead">Data Transmission Models <span class="cite">[<a 
 href="#Xtransmission-models">1</a>]</span></h2>
  <div class="author" ><span 
 class="ecrm-1200">Vicente Gonz</span><span 
 class="ecrm-1200">á</span><span 
 class="ecrm-1200">lez Ruiz</span></div><br />
 <div class="date" ><span 
-class="ecrm-1200">June 1, 2018</span></div>
+class="ecrm-1200">January 4, 2020</span></div>
    </div>
    <h3 class="likesectionHead"><a 
  id="x1-1000"></a>Contents</h3>
    <div class="tableofcontents">
    <span class="sectionToc" >1 <a 
-href="#x1-20001" id="QQ2-1-2">C/S (Client/Server) model</a></span>
+href="#x1-20001" id="QQ2-1-2">Unicast vs Multicast</a></span>
 <br />   <span class="sectionToc" >2 <a 
-href="#x1-30002" id="QQ2-1-3">CDN (Content Distribution Network) model</a></span>
+href="#x1-30002" id="QQ2-1-3">Anycast</a></span>
 <br />   <span class="sectionToc" >3 <a 
-href="#x1-40003" id="QQ2-1-4">P2P (Peer-to-Peer) model</a></span>
-<br />   <span class="sectionToc" >4 <a 
-href="#x1-50004" id="QQ2-1-5">IP Multicast model</a></span>
+href="#x1-40003" id="QQ2-1-4">Client/server (CS) vs peer-to-peers (P2P models</a></span>
+<br />   <span class="sectionToc" ><a 
+href="#Q1-1-6">References</a></span>
    </div>
 <!--l. 6--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
- id="x1-20001"></a>C/S (Client/Server) model</h3>
-<!--l. 7--><p class="noindent" > <div style="text-align:center;"> <img height=300 src="data/CS_model.png" /> </div>  </p>
+ id="x1-20001"></a>Unicast vs Multicast</h3>
      <ul class="itemize1">
-     <li class="itemize">The server sends all data.</li></ul>
-<!--l. 12--><p class="noindent" >
-</p>
-   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
- id="x1-30002"></a>CDN (Content Distribution Network) model</h3>
-<!--l. 13--><p class="noindent" > <div style="text-align:center;"> <img height=300 src="data/CDN_model.png" /> </div>  </p>
-     <ul class="itemize1">
-     <li class="itemize">Server (and channels) are replicated.
+     <li class="itemize">A unicast transmission sends data from a single sender to a single receiver.
+     </li>
+     <li class="itemize">A multicast transmission sends data from a single server to more than one
+     receiver.</li></ul>
                                                                   
 
                                                                   
-     </li>
-     <li class="itemize">All servers store the same content (data must be replicated).</li></ul>
-<!--l. 19--><p class="noindent" >
+<!--l. 14--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-30002"></a>Anycast</h3>
+     <ul class="itemize1">
+     <li class="itemize">A anycast transmission sends data from a single sender to a single receiver,
+     but like in multicast, the receiver is not controlled by the sender.</li></ul>
+<!--l. 21--><p class="noindent" >
 </p>
    <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
- id="x1-40003"></a>P2P (Peer-to-Peer) model</h3>
-<!--l. 20--><p class="noindent" > <div style="text-align:center;"> <img height=300 src="data/P2P_model.png" /> </div>  </p>
+ id="x1-40003"></a>Client/server (CS) vs peer-to-peers (P2P models</h3>
      <ul class="itemize1">
-     <li class="itemize">Peers helps the server.</li></ul>
-<!--l. 25--><p class="noindent" >
-</p>
-   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
- id="x1-50004"></a>IP Multicast model</h3>
-<!--l. 26--><p class="noindent" > <div style="text-align:center;"> <img height=300 src="data/IPM_model.png" /> </div>  </p>
-     <ul class="itemize1">
-     <li class="itemize">The routers do most of the job.</li></ul>
+     <li class="itemize">In a CS model, the data is sent by a server (or a cluster of servers such
+     as in a CDN (content Delivery Network)) and received directly by one or
+     more clients. <div style="text-align:center;"> <img width=600 src="graphics/CS_model.svg" /> </div> 
+     </li>
+     <li class="itemize">As in the CS model, in a P2P model, the data is sent by one or more server,
+     but the rereivers (peers) are able to relay the data in order to reduce the
+     bandwidth comsumption at the server side. <div style="text-align:center;"> <img width=400 src="graphics/P2P_model.svg" /> </div>   The P2P model is also called
+     ALM (Application Multicast Model).</li></ul>
 <!--l. 1--><p class="noindent" >
 </p>
    <h3 class="likesectionHead"><a 
- id="x1-60004"></a>References</h3>
+ id="x1-50003"></a>References</h3>
 <!--l. 1--><p class="noindent" >
    </p><div class="thebibliography">
    <p class="bibitem" ><span class="biblabel">
@@ -87,6 +86,8 @@ href="http://ecomputernotes.com/computernetworkingnotes/computer-network/transmi
 class="ectt-1000">http://ecomputernotes.com/computernetworkingnotes/computer-network/transmission-technology</span></a>.
 </p>
    </div>
+<a 
+ id="Q1-1-6"></a>
     
 </body> 
 </html>
